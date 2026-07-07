@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+    <h1 th:text="#{app.title}">oi oi oi mundo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto praesentium maxime aspernatur porro illum voluptate sed! Adipisci consequuntur obcaecati, itaque commodi quia dolor praesentium ratione veniam possimus in numquam quis? </p>
+    <h2>id: <span th:text="${id}"></span></h2>
+    <h2>param: <span th:text="${id}">ID Placeholder</span></h2>
+    <p>Parametros do request</p>
+    <ul>
+        <li>Parametro: <span th:text="${var1}">parametro placeholder</span></li>
+    </ul>
+
+    <footer th:replace="baseLayout :: footer">pezin</footer>
+</body>
+</html>
