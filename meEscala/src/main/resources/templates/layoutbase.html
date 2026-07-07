@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Me Escala - Painel</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#e7eeff",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ecf1ff",
+                        "primary-container": "#22c55e",
+                        "on-tertiary-fixed-variant": "#7f2a21",
+                        "background": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#410001",
+                        "inverse-primary": "#4ae176",
+                        "on-secondary-container": "#5c2400",
+                        "on-primary-container": "#004b1e",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3d4a3d",
+                        "tertiary": "#9e4036",
+                        "on-secondary-fixed-variant": "#783200",
+                        "surface-dim": "#cfdaf2",
+                        "outline-variant": "#bccbb9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#d8e3fb",
+                        "outline": "#6d7b6c",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#005321",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#d8e3fb",
+                        "inverse-surface": "#263143",
+                        "secondary-fixed": "#ffdbca",
+                        "on-secondary-fixed": "#341100",
+                        "on-surface": "#111c2d",
+                        "secondary": "#9d4300",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed-dim": "#ffb4a9",
+                        "secondary-container": "#fd761a",
+                        "primary-fixed-dim": "#4ae176",
+                        "primary": "#006e2f",
+                        "secondary-fixed-dim": "#ffb690",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-container": "#76231b",
+                        "primary-fixed": "#6bff8f",
+                        "surface-tint": "#006e2f",
+                        "tertiary-fixed": "#ffdad5",
+                        "surface-container-high": "#dee8ff",
+                        "on-background": "#111c2d",
+                        "tertiary-container": "#ff8b7c",
+                        "surface-container-low": "#f0f3ff",
+                        "on-primary-fixed": "#002109"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "lg": "40px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": [
+                            "Inter"
+                        ],
+                        "headline-md": [
+                            "Montserrat"
+                        ],
+                        "headline-lg": [
+                            "Montserrat"
+                        ],
+                        "label-md": [
+                            "Inter"
+                        ],
+                        "body-lg": [
+                            "Inter"
+                        ],
+                        "headline-lg-mobile": [
+                            "Montserrat"
+                        ],
+                        "display-lg": [
+                            "Montserrat"
+                        ],
+                        "body-md": [
+                            "Inter"
+                        ]
+                    },
+                    "fontSize": {
+                        "label-sm": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "headline-md": [
+                            "20px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "label-md": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg-mobile": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "display-lg": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex">
+    <!-- SideNavBar (Desktop) -->
+    <nav th:fragment="sidenav"
+        class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 p-sm gap-base bg-surface-container-low border-r border-outline-variant z-40">
+        <!-- Brand -->
+        <div class="px-xs py-sm mb-md">
+            <h1 class="font-headline-md text-headline-md font-extrabold text-primary">Me Escala</h1>
+        </div>
+        <!-- Header Profile -->
+        <div class="flex items-center gap-sm px-xs mb-lg">
+            <div
+                class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container bg-surface-variant flex-shrink-0">
+                <img alt="User Profile" class="w-full h-full object-cover"
+                    data-alt="A close-up studio portrait of a young athletic man looking determined. The lighting is crisp and bright, characteristic of modern light-mode interface avatars. The background is a clean, neutral white to perfectly isolate the subject. The overall aesthetic is professional, sporty, and highly polished, fitting a premium digital sports platform."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUGsK9mn3Bq71Pud9zyvknqfl8xV9Tby4SBj4ki91caOx6PdzcQlNs2gwZhfFxyLrX5SQt3wKJ8qLxnIQ4XFfBW1jj5EiZtTsMb_gLnMC1NWaxaWzXVuZ1664W1qrp5gdQA0B44oMq8PrS0vEUjwFxJ5T8QBCVf8Cak1hRw7fWVjd667Zy6Ir_CALQ6Ss_4-7eZGI6VRE88cmyJgE9hBXE9Bqz2jUSepiK1PEIbVUpvZWmfHVs6bGk-fdTIoLUU15IZqz-bN2NkBc" />
+            </div>
+            <div>
+                <div class="font-headline-md text-[16px] leading-[20px]">Modo Atleta</div>
+                <div class="font-label-sm text-label-sm text-on-surface-variant">Pronto para o jogo</div>
+            </div>
+        </div>
+        <!-- Navigation Links -->
+        <ul class="flex flex-col gap-xs flex-1">
+            <!-- Active Tab -->
+            <li>
+                <a class="flex items-center gap-sm px-sm py-xs bg-primary-container text-on-primary-container font-bold rounded-xl active:scale-98 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="font-label-md text-label-md">Painel</span>
+                </a>
+            </li>
+            <!-- Inactive Tabs -->
+            <li>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-xl active:scale-98 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">add_box</span>
+                    <span class="font-label-md text-label-md">Criar Partida</span>
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-xl active:scale-98 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">event_available</span>
+                    <span class="font-label-md text-label-md">Minha Agenda</span>
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-xl active:scale-98 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">admin_panel_settings</span>
+                    <span class="font-label-md text-label-md">Gerenciamento</span>
+                </a>
+            </li>
+        </ul>
+        <!-- CTA -->
+        <div class="mt-auto pt-md">
+            <button
+                class="w-full py-xs bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-sm hover:opacity-90 transition-opacity flex justify-center items-center gap-xs">
+                <span class="material-symbols-outlined text-[20px]">search</span>
+                Encontrar Partida
+            </button>
+        </div>
+    </nav>
+    <!-- Main Content Wrapper -->
+    <div class="flex-1 flex flex-col md:ml-64 min-w-0">
+        <!-- TopNavBar -->
+        <header th:fragment="topnav"
+            class="sticky top-0 z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop w-full h-16 bg-surface border-b border-outline-variant">
+            <!-- Mobile Brand -->
+            <div class="md:hidden font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">
+                Me Escala
+            </div>
+            <!-- Desktop Spacer / Search Context -->
+            <div class="hidden md:flex flex-1 items-center gap-sm">
+                <div
+                    class="font-label-md text-label-md text-on-surface-variant bg-surface-container-low px-sm py-[6px] rounded-full border border-outline-variant flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-[18px]">location_on</span>
+                    <span>Área de Lisboa</span>
+                </div>
+            </div>
+            <!-- Trailing Actions -->
+            <div class="flex items-center gap-sm md:gap-md">
+                <button
+                    class="hidden md:block font-label-md text-label-md text-primary hover:bg-surface-container-low px-sm py-xs rounded-full transition-colors">
+                    Mudar para Organizador
+                </button>
+                <div class="flex items-center gap-xs">
+                    <button
+                        class="p-xs text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-150 relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="absolute top-1 right-1 w-2 h-2 bg-secondary-container rounded-full"></span>
+                    </button>
+                    <button
+                        class="md:hidden p-xs text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors active:scale-95 duration-150">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Dashboard Canvas -->
+        <main th:fragment="canvas" class="flex-1 p-margin-mobile md:p-margin-desktop overflow-x-hidden">
+            <!-- Header Section -->
+            <div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-sm">
+                <div>
+                    <h2 class="font-display-lg text-display-lg mb-xs">Partidas Abertas</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Junte-se a um jogo na sua região hoje.
+                        Filtrando por 3 esportes.</p>
+                </div>
+                <div class="flex gap-xs">
+                    <button
+                        class="px-sm py-xs border-2 border-outline-variant text-on-surface font-label-md text-label-md rounded-full hover:bg-surface-variant transition-colors flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-[18px]">filter_list</span> Filtrar
+                    </button>
+                </div>
+            </div>
+            <!-- Matches Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md mb-xl">
+                <!-- Card 1: Football (High Spots) -->
+                <div
+                    class="flex bg-surface border border-outline-variant rounded-lg overflow-hidden hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow group">
+                    <!-- Vertical Time/Date Strip -->
+                    <div
+                        class="w-20 bg-surface-variant flex flex-col items-center justify-center p-xs border-r border-outline-variant shrink-0">
+                        <span class="font-headline-md text-headline-md text-on-surface">19:30</span>
+                        <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Hoje</span>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="flex-1 p-sm flex flex-col">
+                        <div class="flex justify-between items-start mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[24px]">sports_soccer</span>
+                            <span
+                                class="bg-primary/10 text-primary font-label-sm text-label-sm px-xs py-[2px] rounded-full border border-primary/20">
+                                4/10 vagas restantes
+                            </span>
+                        </div>
+                        <h3
+                            class="font-headline-md text-headline-md text-on-surface mb-xs leading-tight group-hover:text-primary transition-colors">
+                            Futebol Noturno 5v5</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mb-md">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Centro de Esportes Arena
+                        </p>
+                        <div class="mt-auto pt-sm border-t border-surface-variant">
+                            <button
+                                class="w-full bg-transparent border-2 border-on-surface text-on-surface font-label-md text-label-md px-sm py-xs rounded-full hover:bg-surface-container-highest transition-colors">
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2: Volleyball (Low Spots - Orange) -->
+                <div
+                    class="flex bg-surface border border-outline-variant rounded-lg overflow-hidden hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow group">
+                    <div
+                        class="w-20 bg-surface-variant flex flex-col items-center justify-center p-xs border-r border-outline-variant shrink-0">
+                        <span class="font-headline-md text-headline-md text-on-surface">20:00</span>
+                        <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Hoje</span>
+                    </div>
+                    <div class="flex-1 p-sm flex flex-col">
+                        <div class="flex justify-between items-start mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[24px]">sports_volleyball</span>
+                            <span
+                                class="bg-secondary-container/10 text-secondary-container font-label-sm text-label-sm px-xs py-[2px] rounded-full border border-secondary-container/20">
+                                2/12 vagas restantes
+                            </span>
+                        </div>
+                        <h3
+                            class="font-headline-md text-headline-md text-on-surface mb-xs leading-tight group-hover:text-primary transition-colors">
+                            Vôlei Indoor Misto</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mb-md">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Quadra A do Ginásio Universitário
+                        </p>
+                        <div class="mt-auto pt-sm border-t border-surface-variant">
+                            <button
+                                class="w-full bg-transparent border-2 border-on-surface text-on-surface font-label-md text-label-md px-sm py-xs rounded-full hover:bg-surface-container-highest transition-colors">
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Basketball (Medium Spots) -->
+                <div
+                    class="flex bg-surface border border-outline-variant rounded-lg overflow-hidden hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow group">
+                    <div
+                        class="w-20 bg-surface-variant flex flex-col items-center justify-center p-xs border-r border-outline-variant shrink-0">
+                        <span class="font-headline-md text-headline-md text-on-surface">18:00</span>
+                        <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Amanhã</span>
+                    </div>
+                    <div class="flex-1 p-sm flex flex-col">
+                        <div class="flex justify-between items-start mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[24px]">sports_basketball</span>
+                            <span
+                                class="bg-primary/10 text-primary font-label-sm text-label-sm px-xs py-[2px] rounded-full border border-primary/20">
+                                6/10 vagas restantes
+                            </span>
+                        </div>
+                        <h3
+                            class="font-headline-md text-headline-md text-on-surface mb-xs leading-tight group-hover:text-primary transition-colors">
+                            Jogo Casual</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mb-md">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Quadras Externas do Centro
+                        </p>
+                        <div class="mt-auto pt-sm border-t border-surface-variant">
+                            <button
+                                class="w-full bg-transparent border-2 border-on-surface text-on-surface font-label-md text-label-md px-sm py-xs rounded-full hover:bg-surface-container-highest transition-colors">
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4: Football (Low Spots) -->
+                <div
+                    class="flex bg-surface border border-outline-variant rounded-lg overflow-hidden hover:shadow-[0px_4px_12px_rgba(30,41,59,0.05)] transition-shadow group">
+                    <div
+                        class="w-20 bg-surface-variant flex flex-col items-center justify-center p-xs border-r border-outline-variant shrink-0">
+                        <span class="font-headline-md text-headline-md text-on-surface">21:00</span>
+                        <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Amanhã</span>
+                    </div>
+                    <div class="flex-1 p-sm flex flex-col">
+                        <div class="flex justify-between items-start mb-xs">
+                            <span class="material-symbols-outlined text-primary text-[24px]">sports_soccer</span>
+                            <span
+                                class="bg-secondary-container/10 text-secondary-container font-label-sm text-label-sm px-xs py-[2px] rounded-full border border-secondary-container/20">
+                                1/14 vagas restantes
+                            </span>
+                        </div>
+                        <h3
+                            class="font-headline-md text-headline-md text-on-surface mb-xs leading-tight group-hover:text-primary transition-colors">
+                            Liga Competitiva 7v7</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-xs mb-md">
+                            <span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Campo da Zona Norte
+                        </p>
+                        <div class="mt-auto pt-sm border-t border-surface-variant">
+                            <button
+                                class="w-full bg-transparent border-2 border-on-surface text-on-surface font-label-md text-label-md px-sm py-xs rounded-full hover:bg-surface-container-highest transition-colors">
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer th:fragment="footer"
+            class="w-full py-md px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-sm bg-surface-container-lowest border-t border-outline-variant mt-auto">
+            <div class="font-headline-md text-headline-md text-primary">Me Escala</div>
+            <div class="flex flex-wrap justify-center gap-sm">
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer opacity-80 hover:opacity-100"
+                    href="#">Suporte</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer opacity-80 hover:opacity-100"
+                    href="#">Política de Privacidade</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer opacity-80 hover:opacity-100"
+                    href="#">Termos de Serviço</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer opacity-80 hover:opacity-100"
+                    href="#">Regras do Torneio</a>
+            </div>
+            <div class="font-label-sm text-label-sm text-on-surface-variant">
+                © 2026 Sistema de Organização Me Escala
+            </div>
+        </footer>
+    </div>
+    <!-- Mobile Bottom Navigation (Synthesized from SideNav for responsive requirement) -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant flex justify-around items-center h-16 z-50">
+        <a class="flex flex-col items-center justify-center w-full h-full text-primary font-bold" href="#">
+            <span class="material-symbols-outlined text-[24px]" data-weight="fill">dashboard</span>
+            <span class="font-label-sm text-[10px] mt-1">Painel</span>
+        </a>
+        <a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-on-surface"
+            href="#">
+            <span class="material-symbols-outlined text-[24px]">add_box</span>
+            <span class="font-label-sm text-[10px] mt-1">Criar</span>
+        </a>
+        <a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-on-surface"
+            href="#">
+            <span class="material-symbols-outlined text-[24px]">event_available</span>
+            <span class="font-label-sm text-[10px] mt-1">Agenda</span>
+        </a>
+    </nav>
+</body>
+
+</html>
