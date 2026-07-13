@@ -193,18 +193,17 @@
 
 <body class="bg-background text-on-background font-body-md antialiased min-h-screen flex">
     <!-- SideNavBar (Desktop) -->
-    <nav th:fragment="sidenav"
+    <nav th:fragment="sidenav(menuAtivo)"
         class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 p-sm gap-base bg-surface-container-low border-r border-outline-variant z-40">
-        <!-- Brand -->
+
         <div class="px-xs py-sm mb-md">
             <h1 class="font-headline-md text-headline-md font-extrabold text-primary">Me Escala</h1>
         </div>
-        <!-- Header Profile -->
+
         <div class="flex items-center gap-sm px-xs mb-lg">
             <div
                 class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container bg-surface-variant flex-shrink-0">
-                <img alt="User Profile" class="w-full h-full object-cover"
-                    data-alt="A close-up studio portrait of a young athletic man looking determined. The lighting is crisp and bright, characteristic of modern light-mode interface avatars. The background is a clean, neutral white to perfectly isolate the subject. The overall aesthetic is professional, sporty, and highly polished, fitting a premium digital sports platform."
+                <img alt="User Profile" class="w-full h-full object-cover" data-alt="A close-up studio portrait..."
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUGsK9mn3Bq71Pud9zyvknqfl8xV9Tby4SBj4ki91caOx6PdzcQlNs2gwZhfFxyLrX5SQt3wKJ8qLxnIQ4XFfBW1jj5EiZtTsMb_gLnMC1NWaxaWzXVuZ1664W1qrp5gdQA0B44oMq8PrS0vEUjwFxJ5T8QBCVf8Cak1hRw7fWVjd667Zy6Ir_CALQ6Ss_4-7eZGI6VRE88cmyJgE9hBXE9Bqz2jUSepiK1PEIbVUpvZWmfHVs6bGk-fdTIoLUU15IZqz-bN2NkBc" />
             </div>
             <div>
@@ -212,46 +211,54 @@
                 <div class="font-label-sm text-label-sm text-on-surface-variant">Pronto para o jogo</div>
             </div>
         </div>
-        <!-- Navigation Links -->
+
         <ul class="flex flex-col gap-xs flex-1">
-            <!-- Active Tab -->
+
             <li>
-                <a class="flex items-center gap-sm px-sm py-xs bg-primary-container text-on-primary-container font-bold rounded-xl active:scale-98 transition-all"
-                    href="#">
+                <a class="flex items-center gap-sm px-sm py-xs rounded-xl active:scale-98 transition-all"
+                    th:classappend="${menuAtivo == 'painel'} ? 'bg-primary-container text-on-primary-container font-bold' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'"
+                    href="/dashboard">
                     <span class="material-symbols-outlined">dashboard</span>
                     <span class="font-label-md text-label-md">Painel</span>
                 </a>
             </li>
-            <!-- Inactive Tabs -->
+
             <li>
-                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-xl active:scale-98 transition-all"
-                    href="#">
+                <a class="flex items-center gap-sm px-sm py-xs rounded-xl active:scale-98 transition-all"
+                    th:classappend="${menuAtivo == 'criar'} ? 'bg-primary-container text-on-primary-container font-bold' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'"
+                    th:href="@{/partidas/criar}">
                     <span class="material-symbols-outlined">add_box</span>
                     <span class="font-label-md text-label-md">Criar Partida</span>
                 </a>
             </li>
+
             <li>
-                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-xl active:scale-98 transition-all"
-                    href="#">
+                <a class="flex items-center gap-sm px-sm py-xs rounded-xl active:scale-98 transition-all"
+                    th:classappend="${menuAtivo == 'agenda'} ? 'bg-primary-container text-on-primary-container font-bold' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'"
+                    th:href="@{/agenda}">
                     <span class="material-symbols-outlined">event_available</span>
                     <span class="font-label-md text-label-md">Minha Agenda</span>
                 </a>
             </li>
+
             <li>
-                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-xl active:scale-98 transition-all"
-                    href="#">
+                <a class="flex items-center gap-sm px-sm py-xs rounded-xl active:scale-98 transition-all"
+                    th:classappend="${menuAtivo == 'gerenciamento'} ? 'bg-primary-container text-on-primary-container font-bold' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'"
+                    th:href="@{/gerenciamento}">
                     <span class="material-symbols-outlined">admin_panel_settings</span>
                     <span class="font-label-md text-label-md">Gerenciamento</span>
                 </a>
             </li>
         </ul>
-        <!-- CTA -->
+
         <div class="mt-auto pt-md">
-            <button
-                class="w-full py-xs bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-sm hover:opacity-90 transition-opacity flex justify-center items-center gap-xs">
+            <a th:href="@{/partidas/buscar}"
+                class="w-full py-xs bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-sm hover:opacity-90 transition-opacity flex justify-center items-center gap-xs cursor-pointer">
+
                 <span class="material-symbols-outlined text-[20px]">search</span>
                 Encontrar Partida
-            </button>
+
+            </a>
         </div>
     </nav>
     <!-- Main Content Wrapper -->
