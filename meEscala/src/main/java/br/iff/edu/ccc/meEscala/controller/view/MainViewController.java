@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainViewController {
 
     @Autowired
-    private PartidaUseCase partidaUseCase; // Agora injetamos o UseCase!
+    private PartidaUseCase partidaUseCase; 
 
     @GetMapping
     public String getPaginaInicial(Model model) {
-        // Pega a lista do UseCase e manda para o dashboard.html
         model.addAttribute("partidas", partidaUseCase.listarTodasAsPartidas());
         return "dashboard";
     }
