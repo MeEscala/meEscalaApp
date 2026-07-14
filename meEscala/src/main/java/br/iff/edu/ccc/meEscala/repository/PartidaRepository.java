@@ -9,7 +9,6 @@ import java.util.List;
 @Repository 
 public class PartidaRepository {
     
-    // Nossa "tabela" em memória
     private List<Partida> listaDePartidas = new ArrayList<>();
 
     public void salvar(Partida partida) {
