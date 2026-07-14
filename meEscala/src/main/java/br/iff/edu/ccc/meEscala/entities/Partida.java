@@ -1,4 +1,4 @@
-package br.iff.edu.ccc.meEscala.model;
+package br.iff.edu.ccc.meEscala.entities;
 
 public class Partida {
     private String titulo;
@@ -7,6 +7,17 @@ public class Partida {
     private String data;
     private String hora;
     private String localizacao;
+
+    public Partida() {}
+
+    public Partida(String titulo, String esporte, Integer maxJogadores, String data, String hora, String localizacao) {
+        this.titulo = titulo;
+        this.esporte = esporte;
+        this.maxJogadores = maxJogadores;
+        this.data = data;
+        this.hora = hora;
+        this.localizacao = localizacao;
+    }
 
     public String getTitulo() {
         return titulo;
