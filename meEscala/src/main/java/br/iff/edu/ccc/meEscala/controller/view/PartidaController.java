@@ -20,11 +20,9 @@ public class PartidaController {
         return "criarPartida";
     }
 
-    // AQUI ESTÁ A GRANDE MUDANÇA: Recebe o DTO!
     @PostMapping("/criar")
     public String salvarPartida(PartidaRequest request) {
         
-        // Passa o DTO para o UseCase cuidar do resto
         partidaUseCase.organizarNovaPartida(request);
         
         return "redirect:/dashboard";
