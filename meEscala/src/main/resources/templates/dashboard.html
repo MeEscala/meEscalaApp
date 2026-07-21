@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layoutbase :: head}"></head>
+
+<body class="bg-background text-on-surface font-body-md min-h-screen flex antialiased">
+    
+    <nav th:replace="~{layoutbase :: sidenav(menuAtivo='painel')}"></nav>
+    
+    <div class="flex-1 flex flex-col md:ml-64 min-w-0">
+        
+        <header class="sticky top-0 z-50 flex md:hidden items-center justify-between px-margin-mobile w-full h-16 bg-surface border-b border-outline-variant text-primary shadow-none">
+            <div class="font-headline-md text-headline-md font-bold text-primary">Me Escala</div>
+        </header>
+
+        <main class="flex-1 p-margin-mobile md:p-margin-desktop bg-surface flex flex-col">
+    <div class="w-full max-w-5xl mx-auto">
+        
+        <div class="mb-lg">
+            <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">
+                Visão Geral</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+                Acompanhe suas estatísticas e próximas partidas.
+            </p>
+        </div>
+
+        <div class="mt-6">
+            <h3 class="font-bold text-lg mb-4 text-primary">Próximas Partidas</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+                
+                <div th:if="${#lists.isEmpty(partidas)}" 
+                     class="col-span-full p-lg bg-surface-container-lowest border border-outline-variant rounded-lg text-center text-on-surface-variant">
+                    Nenhuma partida agendada. Clique em "Criar Partida" no menu lateral!
+                </div>
+
+                <div th:each="p : ${partidas}" 
+                     class="p-md bg-surface-container-lowest border border-outline-variant rounded-lg shadow-sm flex flex-col gap-3 hover:shadow-md transition-shadow">
+                    
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-[18px] text-on-surface" th:text="${p.titulo}">Título</h4>
+                        <span class="bg-primary-container text-on-primary-container px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider" 
+                              th:text="${p.esporte}">Esporte</span>
+                    </div>
+                    
+                    <div class="text-sm text-on-surface-variant flex items-center gap-2 mt-2">
+                        <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        <span th:text="${p.data} + ' às ' + ${p.hora}">Data/Hora</span>
+                    </div>
+                    
+                    <div class="text-sm text-on-surface-variant flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">location_on</span>
+                        <span th:text="${p.localizacao}">Local</span>
+                    </div>
+                    
+                    <div class="text-sm text-on-surface-variant flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">group</span>
+                        <span>Máx. <strong th:text="${p.maxJogadores}">0</strong> Jogadores</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+</main>
+        
+        <footer th:replace="~{layoutbase :: footer}"></footer>
+        
+    </div>
+</body>
+</html>
